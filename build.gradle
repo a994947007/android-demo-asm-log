@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.android.demo'
+version = '1.1.23'
+
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Your Plugin Name',
+                'Implementation-Version': version,
+                'Main-Class': 'com.android.demo.plugin.ASMPlugin'
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            credentials {
+                username '633402a80bdb33a273af19d9'
+                password 'Td2ccL9NNLm-'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2286124-release-1d6Qi3/'
+        }
+        maven {
+            credentials {
+                username '633402a80bdb33a273af19d9'
+                password 'Td2ccL9NNLm-'
+            }
+            url 'https://packages.aliyun.com/maven/repository/2286124-snapshot-J8DIRD/'
+        }
+    }
+
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            from(components.java)
+        }
+    }
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation 'com.android.tools.build:gradle:3.6.3'
+}
+

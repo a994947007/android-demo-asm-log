@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: Your Plugin Name
+Implementation-Version: 1.1.23
+Main-Class: com.android.demo.plugin.ASMPlugin
+
